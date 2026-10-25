@@ -1,0 +1,287 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label"          : "project: install",
+            "type"           : "shell",
+            "command"        : "make install",
+            "presentation"   : {"focus": true},
+            "problemMatcher" : []
+        },
+        {
+            "label"          : "project: update",
+            "type"           : "shell",
+            "command"        : "make update",
+            "presentation"   : {"focus": true},
+            "problemMatcher" : []
+        },
+        {
+            "label"          : "git: whoami",
+            "type"           : "shell",
+            "command"        : "make whoami",
+            "problemMatcher" : []
+        },
+        {
+            "label"          : "git: dev",
+            "type"           : "shell",
+            "command"        : "make dev",
+            "problemMatcher" : []
+        },
+        {
+            "label"          : "cargo: x86_64/main",
+            "type"           : "shell",
+            "command"        : "cargo",
+            "args"           : ["watch","-x","run --bin main --features=pc --target x86_64-unknown-linux-gnu -- lib/${workspaceFolderBasename}.ini"],
+            "options"        : {"cwd": "${workspaceFolder}"},
+            "problemMatcher" : ["$rustc"],
+            "group"          : {"kind": "build", "isDefault": true },
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false}
+        },
+        {
+            "label"          : "cargo: server",
+            "type"           : "shell",
+            "command"        : "cargo",
+            "args"           : ["watch","-x","run --bin server --features=pc --target x86_64-unknown-linux-gnu -- lib/${workspaceFolderBasename}.ini"],
+            "options"        : {"cwd": "${workspaceFolder}"},
+            "problemMatcher" : ["$rustc"],
+            "group"          : {"kind": "build", "isDefault": true },
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false}
+        },
+        {
+            "label"          : "wasm: hello",
+            "type"           : "shell",
+            "command"        : "make tmp/hello.wat",
+            "options"        : {"cwd": "${workspaceFolder}"},
+            "problemMatcher" : [],
+            "group"          : {"kind": "build", "isDefault": true },
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false}
+        },
+        {
+            "label"          : "cargo: pillf103",
+            "type"           : "shell",
+            "command"        : "cargo",
+            "args"           : ["build","--features","pillf103","--target","thumbv7m-none-eabi"],
+            "options"        : {"cwd": "${workspaceFolder}"},
+            "problemMatcher" : ["$rustc"],
+            "group"          : {"kind": "build", "isDefault": true },
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false}
+        },
+        {
+            "label"          : "cargo: f429disco",
+            "type"           : "shell",
+            "command"        : "cargo",
+            "args"           : ["build","--features","f429disco","--target","thumbv7em-none-eabihf"],
+            "options"        : {"cwd": "${workspaceFolder}"},
+            "problemMatcher" : ["$rustc"],
+            "group"          : {"kind": "build", "isDefault": true },
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false}
+        },
+        {
+            "label"          : "deno: watch",
+            "type"           : "shell",
+            "command"        : "deno --watch lib/${workspaceFolderBasename}.ts",
+            "problemMatcher" : [],
+            "group"          : {"kind": "build", "isDefault": true },
+            "presentation"   : {"showReuseMessage": true, "focus": false, "reveal": "silent", "close": false}
+        },
+        {
+            "label"          : "ts: watch",
+            "type"           : "shell",
+            "command"        : "tsc --watch",
+            "problemMatcher" : [],
+            "group"          : {"kind": "build", "isDefault": true },
+            "presentation"   : {"showReuseMessage": true, "focus": false, "reveal": "silent", "close": false}
+        },
+        {
+            "label"          : "minify: uglifyjs",
+            "type"           : "shell",
+            "command"        : "uglifyjs static/${workspaceFolderBasename}.js -o static/${workspaceFolderBasename}.min.js",
+            "problemMatcher" : [],
+            "group"          : {"kind": "build", "isDefault": true },
+            "presentation"   : {"showReuseMessage": true, "focus": false, "reveal": "silent", "close": false}
+        },
+        {
+            "label"          : "cargo: x86_64/linux",
+            "type"           : "shell",
+            "command"        : "cargo",
+            "args"           : ["watch","-x","run --bin linux --target x86_64-unknown-linux-gnu -- lib/${workspaceFolderBasename}.ini"],
+            "problemMatcher" : [],
+            "group"          : {"kind": "build", "isDefault": true },
+            "presentation"   : {"showReuseMessage": true, "focus": false, "reveal": "silent", "close": false}
+        },
+        {
+            "label"          : "cargo: x86_64/win64",
+            "type"           : "shell",
+            "command"        : "cargo",
+            "args"           : ["build","--target","x86_64-pc-windows-gnu"],
+            "problemMatcher" : [],
+            "group"          : {"kind": "build", "isDefault": true },
+            "presentation"   : {"showReuseMessage": true, "focus": false, "reveal": "silent", "close": false}
+        },
+        {
+            "label"          : "cargo: x86_64/mingw32",
+            "type"           : "shell",
+            "command"        : "cargo",
+            "args"           : ["build","--target","i686-pc-windows-gnu"],
+            "problemMatcher" : [],
+            "group"          : {"kind": "build", "isDefault": true },
+            "presentation"   : {"showReuseMessage": true, "focus": false, "reveal": "silent", "close": false}
+        },
+        {
+            "label"          : "openocd: debug",
+            "type"           : "shell",
+            // "dependsOn"      : "CMake: build",
+            "command"        : "openocd -f hw/${command:cmake.activeConfigurePresetName}/${command:cmake.activeConfigurePresetName}.ocd",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": false, "focus": false, "reveal": "silent", "close": true},
+            "group"          : {"kind": "build", "isDefault": true }
+        },
+        {
+            "label"          : "openocd: fw",
+            "type"           : "shell",
+            "dependsOn"      : "CMake: build",
+            "command"        : "openocd -f hw/${command:cmake.activeConfigurePresetName}/${command:cmake.activeConfigurePresetName}.ocd -c \"program ${command:cmake.launchTargetPath} verify reset exit\"",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": false, "focus": true, "reveal": "silent", "close": false},
+            "group"          : {"kind": "build", "isDefault": true }
+        },
+        {
+            "label"          : "python: run",
+            "type"           : "shell",
+            "command"        : "bin/python3 src/${workspaceFolderBasename}.py lib/${workspaceFolderBasename}.ini",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": false, "focus": false, "reveal": "silent"},
+            "group"          : {"kind": "build","isDefault": true}
+        },
+        {
+            "label"          : "F#: build",
+            "type"           : "shell",
+            "command"        : "dotnet build",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": false, "focus": false, "reveal": "silent"},
+            "group"          : {"kind": "build","isDefault": true}
+        },
+        {
+            "label"          : "cargo: watch",
+            "type"           : "shell",
+            "command"        : "cargo",
+            "args"           : ["watch","-x","run -p ${workspaceFolderBasename} -- lib/${workspaceFolderBasename}.ini"],
+            "options"        : {"cwd": "${workspaceFolder}"},
+            "problemMatcher" : ["$rustc"],
+            "group"          : {"kind": "build", "isDefault": true },
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false}
+        },
+        {
+            "label"          : "cargo: recv",
+            "type"           : "shell",
+            "command"        : "cargo",
+            "args"           : ["watch","-x","run --bin recv --features=pc --target x86_64-unknown-linux-gnu -- lib/${workspaceFolderBasename}.ini"],
+            "options"        : {"cwd": "${workspaceFolder}"},
+            "problemMatcher" : ["$rustc"],
+            "group"          : {"kind": "build", "isDefault": true },
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false}
+        },
+        {
+            "label"          : "cargo: install",
+            "type"           : "shell",
+            "command"        : "cargo",
+            "args"           : ["install","--path",".","--root","${workspaceFolder}/tmp"],
+            "options"        : {"cwd": "${workspaceFolder}"},
+            "problemMatcher" : ["$rustc"],
+            "group"          : {"kind": "build", "isDefault": true },
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false}
+        },
+        {
+            "label"          : "dune: build",
+            "type"           : "shell",
+            "command"        : "dune build",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false},
+            "group"          : {"kind": "build", "isDefault": true}
+        },
+        {
+            "label"          : "dune: watch",
+            "type"           : "shell",
+            "command"        : "dune exec ${workspaceFolderBasename} --watch",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false},
+            "group"          : {"kind": "build", "isDefault": true}
+        },
+        {
+            "label"          : "dune: exec",
+            "type"           : "shell",
+            "command"        : "dune exec ${workspaceFolderBasename}",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false},
+            "group"          : {"kind": "build", "isDefault": true}
+        },
+        {
+            "label"          : "dune: clean",
+            "type"           : "shell",
+            "command"        : "dune clean",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false},
+            "group"          : {"kind": "build", "isDefault": true}
+        },
+        {
+            "label"          : "dune: test",
+            "type"           : "shell",
+            "command"        : "dune test",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false},
+            "group"          : {"kind": "build", "isDefault": true}
+        },
+        {
+            "label"          : "rebar3: compile",
+            "type"           : "shell",
+            "command"        : "rebar3 compile",
+            // "dependsOn"      : "CMake: build",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false},
+            "group"          : {"kind": "build", "isDefault": true}
+        },
+        {
+            "label"          : "git: checkout .vscode",
+            "type"           : "shell",
+            "command"        : "git checkout .vscode/settings.json",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": false, "focus": false, "reveal": "silent", "close": true},
+            "group"          : {"kind": "build", "isDefault": true}
+        },
+        {
+            "label"          : "make: watch",
+            "type"           : "shell",
+            "command"        : "make watch",
+            // "dependsOn"      : "CMake: build",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false},
+            "group"          : {"kind": "build", "isDefault": true}
+        },
+        {
+            "label"          : "make: run",
+            "type"           : "shell",
+            "command"        : "make run",
+            // "dependsOn"      : "CMake: build",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false},
+            "group"          : {"kind": "build", "isDefault": true}
+        },
+        {
+            "label"          : "doxy: gen",
+            "type"           : "shell",
+            "group"          : {"kind": "build", "isDefault": true },
+            // "dependsOn"      : "CMake: build",
+            "command"        : "make doxy",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": false, "focus": false, "reveal": "silent", "close": false}
+        },
+        {
+            "label"          : "make: ai",
+            "type"           : "shell",
+            "command"        : "make ai",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false},
+            "group"          : {"kind": "build", "isDefault": true}
+        }
+    ]
+}
