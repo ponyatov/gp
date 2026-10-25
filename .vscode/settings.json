@@ -2,7 +2,6 @@
     // files
     "files.exclude": {
         "doc/html": true, "**/node_modules": true,
-        "_build/**": true, "target/**": true,
         "**/__pycache__": true,
         "bin/py*": true, "bin/pip*": true,
         "bin/?ctivate*": true, "bin/autopep*": true, ".pytest*": true,
@@ -13,15 +12,8 @@
         "_build/**": true, "target/**": true,
     },
     "files.associations": {
-        "*.linux": "properties", "*.uclibc": "properties",
-        "*.rc": "shell", "*.service": "systemd-unit-file",
-        "*.mk": "makefile", "*.make": "makefile",
-        "*.ld": "linkerscript", "*.ld.fix": "linkerscript",
-        "*.ioc": "properties", "*.ocd": "properties",
-        "*.s": "arm", "*.s.fix": "arm", "*.S": "arm",
         "requirements.*": "properties",
-        "*.ksy": "yaml",
-        "*.ini": "properties", "*.u": "properties"
+        "*.ini": "properties", "*.?": "properties"
     },
 
     // editor
@@ -44,9 +36,6 @@
     "auto-tab-closer.numMaxTabs": 3,
     "git.enabled": false,
 
-    // terminal
-    "SerialTerminal.serial port.configurations": ["115200n1"],
-
     // JavaScript
     "prettier.configPath"         : ".prettierrc",
     "prettier.requireConfig"      :  true,
@@ -57,53 +46,10 @@
     "[jsonc]"     : {
         "editor.defaultFormatter" : "esbenp.prettier-vscode",
         "editor.formatOnSave"     : false},
-    "[html]": {
-        "editor.defaultFormatter" : "esbenp.prettier-vscode",
-        "editor.formatOnSave"     : false},
-    "[javascript]": {
-        "editor.defaultFormatter" : "esbenp.prettier-vscode",
-        "editor.formatOnSave"     : false},
-    "[typescript]": {
-        "editor.defaultFormatter" : "esbenp.prettier-vscode",
-        "editor.formatOnSave"     : false},
-    //   "eslint.validate": ["typescript"],
-    //   "typescript.updateImportsOnFileMove.enabled": "always",
-    //   "javascript.updateImportsOnFileMove.enabled": "always",
-
-    // clang-format
-    "clang-format.executable"     : "clang-format",
-    "clang-format.fallbackStyle"  : "Google",
-    "clang-format.style"          : "file",
-    "clang-format.assumeFilename" : ".clang-format",
-
-    // C++
-    "[c]"  : {
-        "editor.defaultFormatter" : "xaver.clang-format",
-        "editor.formatOnSave"     : false },
-    "[cpp]": {
-        "editor.defaultFormatter" : "xaver.clang-format",
-        "editor.formatOnSave"     : false },
-    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
-    "C_Cpp.files.exclude": { "ref": true },
-
-    // CMake
-    "cmake.sourceDirectory" : "${workspaceFolder}",
-    "cmake.buildDirectory"  : "${workspaceFolder}/tmp/${workspaceFolderBasename}",
-    "cmake.generator"       : "Unix Makefiles",
-    "cmake.buildBeforeRun"  : true,
-    "cmake.saveBeforeBuild" : true,
-    "cmake.parallelJobs"    : 4,
-    "cmake.useCMakePresets" : "always",
-    "cmake.allowCommentsInPresetsFile" : true,
-    "cmake.ignoreCMakeListsMissing"    : false,
-    "cmake.debugConfig"     : {
-        "cwd" :   "${workspaceFolder}",
-        "args": [ "lib/${workspaceFolderBasename}.ini" ] },
 
     // Python
     // "python.defaultInterpreterPath":  "${workspaceFolder}/bin/python3",
     // "autopep8.path"                : ["${workspaceFolder}/bin/autopep8"],
-    // "ruff.interpreter"             : ["${workspaceFolder}/bin/python3"],
     "autopep8.args"                   : ["--ignore","E26,E302,E305,E401,E402,E701,E702"],
     "python.analysis.extraPaths"      : ["${workspaceFolder}/src"],
     "python.testing.pytestEnabled"    : true,
@@ -112,62 +58,4 @@
         "editor.defaultFormatter"     : "ms-python.autopep8",
         "editor.formatOnSave"         :  false},
     "python.testing.pytestArgs"       : ["py"],
-    "ruff.configuration"               : ".ruff.toml",
-    "ruff.lint.preview"                : true,
-    "ruff.format.preview"              : true,
-
-    // WASM
-    "[yaml]": {
-        "editor.insertSpaces": true,
-        "editor.tabSize": 4,
-        "editor.autoIndent": "advanced",
-        "diffEditor.ignoreTrimWhitespace": false
-    },
-
-    // Rust
-    "rust-analyzer.checkOnSave"       : false,
-    "[rust]": {
-        "editor.defaultFormatter"     : "rust-lang.rust-analyzer",
-        "editor.formatOnSave"         : true},
-    "rust-analyzer.check.allTargets"  : false,
-    "rust-analyzer.cargo.allTargets"  : false,
-    "rust-analyzer.cargo.target"      : "x86_64-unknown-linux-gnu",
-    "rust-analyzer.cargo.features"    : ["pc","i5","x86_64","linux"],
-    // "rust-analyzer.cargo.target"         : "wasm32-unknown-unknown",
-    // "rust-analyzer.cargo.target"         : "aarch64-unknown-linux-gnu",
-    // "rust-analyzer.cargo.target"         : "i686-pc-windows-gnu",
-    // "rust-analyzer.cargo.target"         : "thumbv7m-none-eabi",
-    // "rust-analyzer.cargo.target"         : "thumbv7m-none-eabihf",
-    // "rust-analyzer.cargo.features"       : ["pillf103","stm32f1","cortex","cortexm3"],
-    // "rust-analyzer.cargo.target"         : "thumbv7em-none-eabihf",
-    // "rust-analyzer.cargo.features"       : ["f429disco","stm32f4","cortex","cortexm4"],
-    // "rust-analyzer.cargo.target"         : "x86_64-pc-windows-gnu",
-    // "rust-analyzer.cargo.target"         : "xtensa-esp32s3-none-elf",
-    // "rust-analyzer.cargo.features"       : ["kc868","esp32s3","xtensa","rtos"],
-    // "rust-analyzer.server.extraEnv"      : {"RUSTUP_TOOLCHAIN": "stable"},
-    // "rust-analyzer.cargo.extraEnv"       : {"RUSTUP_TOOLCHAIN": "esp"},
-
-    // Erlang
-    "erlang.codeLensEnabled": true,
-    "erlang.formattingLineLength": 80,
-    "[erlang]": { "editor.formatOnSave": true },
-
-    // OCaml (cs3110/cs134b)
-    "[ocaml]"           : {
-        "editor.tabSize": 2, "editor.formatOnSave": false },
-    "[ocaml.interface]" : {
-        "editor.tabSize": 2, "editor.formatOnSave": false },
-    "[dune]"            : {
-        "editor.tabSize": 2, "editor.formatOnSave": false },
-
-    // MinGW/MSYS2
-    "terminal.integrated.defaultProfile.windows": "UCRT64",
-    "terminal.integrated.profiles.windows": {
-        "UCRT64": {
-            "path": "C:\\msys64\\usr\\bin\\bash.exe",
-            "args": ["--login","-i"],
-            "env": {
-            "MSYSTEM": "UCRT64",
-            "CHERE_INVOKING": "1",
-    }}}
 }

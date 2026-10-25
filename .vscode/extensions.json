@@ -8,18 +8,11 @@
         "redhat.vscode-xml",
         "redhat.vscode-yaml",
         "mechatroner.rainbow-csv",
-        // documenting
-        "bierner.markdown-mermaid",
-        "jebbs.plantuml",
-        // "aleksandardev.vscode-sequence-diagrams",
-        // AI
-        "AmazonWebServices.aws-toolkit-vscode",
-        "anthropic.claude-code",
-        // "ms-windows-ai-studio.windows-ai-studio",
         // formatters
         "xaver.clang-format",
         "esbenp.prettier-vscode",
         "foxundermoon.shell-format",
+        "esbenp.prettier-vscode",
         // Linux
         "ms-vscode-remote.remote-ssh",
         "coolbear.systemd-unit-file",
@@ -28,65 +21,9 @@
         // "github.vscode-github-actions",
         // misc
         // "hbenl.vscode-test-explorer",
-        // Web/JS
-        "esbenp.prettier-vscode",
-        "vitest.explorer",
-        "dtsvet.vscode-wasm",
-        "jock.svg",
-        "denoland.vscode-deno",
-        // "dbaeumer.vscode-eslint",
-        // C++
-        "ms-vscode.cpptools",
-        "jeff-hykin.better-cpp-syntax",
-        "ms-vscode.cmake-tools",
-        // "krosf.vscode-valgrind",
-        // "theqtcompany.qt-cpp",
-        // "theqtcompany.qt-qml",
-        // parser
-        "daohong-emilio.yash",
-        "rreverser.ragel",
-        // "serghei-iakovlev.language-lemon",
-        // "fudgepops.kaitai-struct-vscode",
-        // "supremeconset.binpac-vscode-extension",
-        // "AlecGhost.tree-sitter-vscode",
-        // embedded
-        "zixuanwang.linkerscript",
-        "ms-vscode.vscode-serial-monitor",
-        // "dan-c-underwood.arm",
-        // "espressif.esp-idf-extension",
-        // "basdp.language-gas-x86",
-        // "ivannovak1004.gnuradio-integration",
-        // "ms-vscode.hexeditor",
         // Python
         "ms-python.python",
         "ms-python.autopep8",
-        "pamaron.pytest-runner",
-        // "charliermarsh.ruff",
-        // "batisteo.vscode-django",
-        // Rust
-        "rust-lang.rust-analyzer",
-        "tamasfe.even-better-toml",
-        "probe-rs.probe-rs-debugger",
-        "fill-labs.dependi"
-        // "vadimcn.vscode-lldb",
-        // "swellaby.vscode-rust-test-adapter",
-        // "sissel.shopify-liquid",
-        // "marus25.cortex-debug",
-        // FORTH
-        "fttx.language-forth",
-        // Erlang
-        "pgourlain.erlang",
-        // LLVM
-        "rreverser.llvm",
-        "revng.llvm-ir",
-        // Langium
-        // "langium.langium-vscode",
-        // "vitest.explorer",
-        // "kingwl.vscode-vitest-runner"
-        // share
-        "ms-vsliveshare.vsliveshare",
-        "lostintangent.vsls-whiteboard",
-        // OCaml
-        "ocamllabs.ocaml-platform",
+        "pamaron.pytest-runner"
     ]
 }

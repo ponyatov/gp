@@ -7,3 +7,4 @@ github: https://github.com/ponyatov/gp
 
 ![[About]]
 ![[Калибровка]]
+![[Прототип]]
